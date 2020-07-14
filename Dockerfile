@@ -1,1 +1,2 @@
-Run apt-install nano -y
+FROM ubuntu
+echo "hello world"
