@@ -1,2 +1,2 @@
 FROM ubuntu
-echo "hello world"
+RUN mkdir test
