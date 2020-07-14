@@ -1,7 +1,8 @@
 pool:
   vmImage: 'windows-2019'
 
-container: mcr.microsoft.com/windows/servercore:ltsc2019
-
+container:
+   image: mcr.microsoft.com/windows/servercore:ltsc2019
+   options: --mac-address 92:d0:c6:0a:29:33
 steps:
-- script: set
+- script: ipconfig /all
