@@ -6,3 +6,4 @@ container:
    options: --mac-address 92:d0:c6:0a:29:33
 steps:
 - script: ipconfig /all
+- script: dir .
