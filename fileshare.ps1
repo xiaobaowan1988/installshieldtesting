@@ -11,7 +11,7 @@ if ($connectTestResult.TcpTestSucceeded) {
 dir Z:\
 net use
 cd Z:\
-.\InstallShield2019R3StandaloneBuild.exe /s /v"ADDLOCAL=ALL /qn"
+.\InstallShield2018R2StandaloneBuild.exe /s /v"ADDLOCAL=ALL /qn"
 start-sleep -s 60
 cd C:\
 cd "C:\Program Files (x86)\InstallShield\2018 SAB\System"
