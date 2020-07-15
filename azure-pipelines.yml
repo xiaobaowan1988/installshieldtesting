@@ -24,12 +24,9 @@ steps:
         dir z:
         cd z:\
         cd z:\
+        ipconfig /all
+        dir .
+        start-sleep -s 60
     displayName: "Mount azure file share to Z"
 
-- powershell: ipconfig /all
-- powershell: dir .
-- powershell: .\InstallShield2018R2StandaloneBuild.exe /s /v"ADDLOCAL=ALL /qn"
-- powershell: start-sleep -s 60
-- powershell: cd C:\
-- powershell: cd "C:\Program Files (x86)\InstallShield\2018 SAB\System"
-- powershell: .\IsCmdBld.exe
+
