@@ -29,8 +29,9 @@ steps:
         cd "C:\Program Files (x86)\"
         ipconfig /all
         Get-Childitem –Path "C:\Program Files (x86)\InstallShield\2018 SAB\System"    -ErrorAction SilentlyContinue
-        cd "C:\Program Files (x86)\InstallShield\2018 SAB\System"
-        dir .
+        $a = New-Object -ComObject Scripting.FileSystemObject 
+        $f = $a.GetFile("C:\Program Files (x86)\InstallShield\2018 SAB\System\IsCmdBld.exe")
+        $f.ShortPath
     displayName: "Mount azure file share to Z"
 
 
