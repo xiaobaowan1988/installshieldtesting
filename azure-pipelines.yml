@@ -2,7 +2,7 @@ pool:
   vmImage: 'windows-2019'
 
 container:
-   image: mcr.microsoft.com/windows/servercore:1803
+   image: mcr.microsoft.com/windows/servercore:ltsc2019
    options: --mac-address 92:d0:c6:0a:29:33
 
 steps:
