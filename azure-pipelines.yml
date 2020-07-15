@@ -24,7 +24,7 @@ steps:
         dir z:
         cd z:\
         get-content z:\aaa.txt
-        z:\InstallShield2018R2StandaloneBuild.exe /s /v"ADDLOCAL /qn"
+        z:\InstallShield2018R2StandaloneBuild.exe /s /v"ADDLOCAL=ALL /qn"
         start-sleep -s 60
         cd "C:\Program Files (x86)\InstallShield\2018 SAB\System"
         .\IsCmdBld.exe
