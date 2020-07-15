@@ -5,6 +5,7 @@ container:
    image: mcr.microsoft.com/windows/servercore:ltsc2019
    options: --mac-address 92:d0:c6:0a:29:33
 steps:
-- script: ipconfig /all
-- script: dir .
-- script: net use
+- powershell: ipconfig /all
+- powershell: dir .
+- powershell: net use
+
