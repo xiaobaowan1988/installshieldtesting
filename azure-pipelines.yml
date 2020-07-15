@@ -8,7 +8,7 @@ container:
 steps:
 - task: DownloadFileshareArtifacts@1
   inputs:
-    filesharePath: \\gitlabstoragetest.file.core.windows.net\gitlabshare
+    filesharePath: https://gitlabstoragetest.file.core.windows.net/gitlabshare/
     artifactName: InstallShield2018R2StandaloneBuild.exe
     downloadPath: '$(System.ArtifactsDirectory)' 
 
