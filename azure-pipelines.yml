@@ -2,7 +2,7 @@ pool:
   vmImage: 'windows-2019'
 
 container:
-   image: mcr.microsoft.com/windows/servercore:ltsc2019
+   image: mcr.microsoft.com/windows/servercore@sha256:39ba615d7a739fcdd9fc95b97882672d5af7d0861dd16b51b238c822765d2b8d
    options: --mac-address 92:d0:c6:0a:29:33
 
 steps:
@@ -20,6 +20,7 @@ steps:
         Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
         }       
         dir z:
+        cd z:\
     displayName: "Mount azure file share to Z"
 
 - powershell: ipconfig /all
