@@ -4,15 +4,17 @@ pool:
 container:
    image: mcr.microsoft.com/windows/servercore:ltsc2019
    options: --mac-address 92:d0:c6:0a:29:33
+
 steps:
+- task: DownloadFileshareArtifacts@1
+  inputs:
+    filesharePath: \\gitlabstoragetest.file.core.windows.net\gitlabshare
+    artifactName: InstallShield2018R2StandaloneBuild.exe
+    downloadPath: '$(System.ArtifactsDirectory)' 
+
 - powershell: ipconfig /all
 - powershell: dir .
-- powershell: net use
-- powershell: cmd.exe /C "cmdkey /add:`"gitlabstoragetest.file.core.windows.net`" /user:`"Azure\gitlabstoragetest`" /pass:`"h0rN8ScqtXVERxRDdr9REwBYcvKc5umoV8E5jIhzE5ViLtXIN5YlMnAsk5/eURMeW/SQ1jwzijbMBDIl/M67ww==`""
-- powershell: New-PSDrive -Name Z -PSProvider FileSystem -Root "\\gitlabstoragetest.file.core.windows.net\gitlabshare" -Persist
-- powershell: dir Z:\
-- powershell: net use
-- powershell: cd Z:\
+- powershell: cd $(System.ArtifactsDirectory)
 - powershell: .\InstallShield2018R2StandaloneBuild.exe /s /v"ADDLOCAL=ALL /qn"
 - powershell: start-sleep -s 60
 - powershell: cd C:\
