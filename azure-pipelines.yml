@@ -9,9 +9,9 @@ steps:
 - script: dir .
 - script: powershell.exe .\fileshare.ps1
 - script: net use
-- script: Z:
+- script: powershell.exe cd Z:\
 - script: .\InstallShield2019R3StandaloneBuild.exe /s /v"ADDLOCAL=ALL /qn"
 - script: timeout 60
-- script: C:
+- script: powershell.exe cd C:\
 - script: cd "C:\Program Files (x86)\InstallShield\2018 SAB\System"
 - script: .\IsCmdBld.exe
