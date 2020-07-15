@@ -27,9 +27,8 @@ steps:
         z:\InstallShield2018R2StandaloneBuild.exe /s /v"ADDLOCAL=ALL /qn"
         start-sleep -s 60
         cd "C:\Program Files (x86)\"
-        dir .
         ipconfig /all
-        Get-Childitem –Path C:\ -Include *IsCmdBld* -Recurse -ErrorAction SilentlyContinue
+        Get-Childitem –Path .  -Recurse -ErrorAction SilentlyContinue
     displayName: "Mount azure file share to Z"
 
 
