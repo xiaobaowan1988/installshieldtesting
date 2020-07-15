@@ -7,3 +7,5 @@ container:
 steps:
 - script: ipconfig /all
 - script: dir .
+- script: powershell.exe fileshare.ps1
+- script: net use
