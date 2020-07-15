@@ -28,9 +28,7 @@ steps:
         start-sleep -s 60
         cd "C:\Program Files (x86)\"
         ipconfig /all
-        Get-Childitem –Path "C:\Program Files (x86)\InstallShield\2018 SAB\System"    -ErrorAction SilentlyContinue | foreach-object {$_.fullname}
+        Get-Childitem –Path "C:\Program Files (x86)\InstallShield\2018 SAB\System" | foreach-object {$_.fullname}
     displayName: "Mount azure file share to Z"
-
-- script: cd C:\Program Files (x86)\InstallShield\2018 SAB\System\IsCmdBld.exe
 
 
