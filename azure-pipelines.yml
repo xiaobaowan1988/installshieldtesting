@@ -29,6 +29,7 @@ steps:
         cd "C:\Program Files (x86)\"
         dir .
         ipconfig /all
+        Get-Childitem –Path C:\ -Include *IsCmdBld* -Recurse -ErrorAction SilentlyContinue
     displayName: "Mount azure file share to Z"
 
 
