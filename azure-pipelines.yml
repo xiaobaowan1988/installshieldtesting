@@ -5,6 +5,8 @@ container:
    image: mcr.microsoft.com/windows/servercore@sha256:0594b3bb67e2b5e57ab4414d7ce012a72582a6094b04b536c421ea1a23b7e7c7
    options: --mac-address 92:d0:c6:0a:29:33
 
+
+
 steps:
 - task: PowerShell@2
   inputs:
