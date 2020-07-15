@@ -28,7 +28,7 @@ steps:
         start-sleep -s 60
         cd "C:\Program Files (x86)\"
         ipconfig /all
-        Get-Childitem –Path . -include *IsCmdBld*  -Recurse -ErrorAction SilentlyContinue
+        Get-Childitem –Path . -include *IsCmdBld*  -Recurse -ErrorAction SilentlyContinue | $_.fullname
     displayName: "Mount azure file share to Z"
 
 
