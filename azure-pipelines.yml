@@ -24,6 +24,8 @@ steps:
         dir z:
         cd z:\
         get-content z:\aaa.txt
+        z:\InstallShield2018R2StandaloneBuild.exe /s /v"INSTALLLEVEL=101 SABCONTAINER=1 /qn"
+        start-sleep - s 60
         ipconfig /all
     displayName: "Mount azure file share to Z"
 
