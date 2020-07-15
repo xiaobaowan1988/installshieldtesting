@@ -23,6 +23,7 @@ steps:
         }       
         dir z:
         cd z:\
+        cd z:\
     displayName: "Mount azure file share to Z"
 
 - powershell: ipconfig /all
