@@ -23,10 +23,8 @@ steps:
         }       
         dir z:
         cd z:\
-        cd z:\
+        get-content z:\aaa.txt
         ipconfig /all
-        dir .
-        start-sleep -s 60
     displayName: "Mount azure file share to Z"
 
 
