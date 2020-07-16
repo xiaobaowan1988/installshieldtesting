@@ -27,7 +27,7 @@ steps:
 
         .\InstallShield2018R2StandaloneBuild.exe /s /v"INSTALLLEVEL=101 SABCONTAINER=1 /qn"
 
-        start-sleep -s 30
+        start-sleep -s 40
         ipconfig /all
 
         
