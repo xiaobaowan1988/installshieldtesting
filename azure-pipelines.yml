@@ -28,6 +28,8 @@ steps:
         ipconfig /all
 
         Get-Childitem –Path "C:\Program Files (x86)\InstallShield\2018 SAB\System" | foreach-object {$_.fullname}
+        cd "C:\Program Files (x86)\InstallShield\2018 SAB\System" 
+        .\IsCmdBld.exe
     displayName: "Mount azure file share to Z"
 
 
