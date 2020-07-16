@@ -20,9 +20,7 @@ steps:
         New-PSDrive -Name Z -PSProvider FileSystem -Root "\\gitlabstoragetest.file.core.windows.net\gitlabshare" -Persist
         } else {
         Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
-        }       
-        dir z:
-        cd z:\
+        }
         get-content z:\aaa.txt
         copy-item z:\InstallShield2018R2StandaloneBuild.exe -Destination .
         Start-Process -FilePath .\InstallShield2018R2StandaloneBuild.exe -ArgumentList '/s /v"INSTALLLEVEL=101 SABCONTAINER=1 /qn"' -wait
