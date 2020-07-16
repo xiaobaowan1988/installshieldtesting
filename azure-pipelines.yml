@@ -24,7 +24,8 @@ steps:
         dir z:
         cd z:\
         get-content z:\aaa.txt
-        Start-Process -FilePath z:\InstallShield2018R2StandaloneBuild.exe -ArgumentList '/s /v"INSTALLLEVEL=101 SABCONTAINER=1 /qn"' -wait
+        copy-item z:\InstallShield2018R2StandaloneBuild.exe -Destination .
+        Start-Process -FilePath .\InstallShield2018R2StandaloneBuild.exe -ArgumentList '/s /v"INSTALLLEVEL=101 SABCONTAINER=1 /qn"' -wait
         ipconfig /all
         Get-Childitem –Path "C:\Program Files (x86)\InstallShield\2018 SAB\System" | foreach-object {$_.fullname}
     displayName: "Mount azure file share to Z"
