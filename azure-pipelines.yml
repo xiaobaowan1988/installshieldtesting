@@ -23,7 +23,10 @@ steps:
         }
         get-content z:\aaa.txt
         copy-item z:\InstallShield2018R2StandaloneBuild.exe -Destination .
-        .\InstallShield2018R2StandaloneBuild.exe /s /v"/qn"
+        
+
+        .\InstallShield2018R2StandaloneBuild.exe /s /v"INSTALLLEVEL=101 SABCONTAINER=1 /qn"
+
         start-sleep -s 60
         ipconfig /all
 
