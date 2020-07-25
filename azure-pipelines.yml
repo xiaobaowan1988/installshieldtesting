@@ -3,7 +3,8 @@ pool:
 
 steps:
 - script: |
-    go build .\hello.go
-    go run .\hello
+    dir .
+    go build ./hello.go
+    go run ./hello
 
 
