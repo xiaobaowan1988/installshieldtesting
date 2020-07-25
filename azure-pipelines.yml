@@ -4,7 +4,7 @@ pool:
 steps:
 - script: |
     dir .
-    go build hello.go
-    go run hello
+    go build main.go
+    go run main
 
 
