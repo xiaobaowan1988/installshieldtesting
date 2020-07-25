@@ -8,11 +8,6 @@ container:
 
 
 steps:
-- task: PowerShell@2
-  inputs:
-    targetType: 'inline'
-    script: |
-        go
-    displayName: "Mount azure file share to Z"
+- script: go -version
 
 
