@@ -4,6 +4,9 @@ pool:
 steps:
 - script: |
     dir .
+    mkdir main
+    copy-item main.go -destination .\main
+    cd main
     go build main.go
     go run main
 
