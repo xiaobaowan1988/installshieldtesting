@@ -5,7 +5,7 @@ steps:
 - script: |
     dir .
     mkdir main
-    copy main.go  main/main.go
+    copy main.go  main\main.go
     cd main
     go build main.go
     go run main
