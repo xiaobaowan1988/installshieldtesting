@@ -3,5 +3,6 @@ pool:
 
 steps:
 - script: go version
+- script: ipconfig /all
 
 
