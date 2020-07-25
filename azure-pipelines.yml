@@ -6,6 +6,7 @@ steps:
     dir .
     mkdir main
     copy main.go  main\main.go
+    dir main
     cd main
     go build main.go
     go run main
