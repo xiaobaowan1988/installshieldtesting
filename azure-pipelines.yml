@@ -1,9 +1,37 @@
 pool:
   vmImage: 'windows-2019'
 
+container:
+   image: mcr.microsoft.com/windows/servercore:ltsc2019
+   options: --mac-address 00:15:5d:46:a3:0f
 steps:
-- script: |
-    dir .
-    go run main.go
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+       $connectTestResult = Test-NetConnection -ComputerName gitlabteststorage.file.core.windows.net -Port 445
+       if ($connectTestResult.TcpTestSucceeded) {
+       # Save the password so the drive will persist on reboot
+       cmd.exe /C "cmdkey /add:`"gitlabteststorage.file.core.windows.net`" /user:`"Azure\gitlabteststorage`" /pass:`"7m63bPuZO6YddZuERxdXWzqrxamKZQf7bNNFbLw3vOQxFNHrHGvsGFRul1gDSod7fvmKIL7tfnR36DLxkjW5ng==`""
+       # Mount the drive
+       New-PSDrive -Name Z -PSProvider FileSystem -Root "\\gitlabteststorage.file.core.windows.net\installshieldtest" -Persist
+       } else {
+       Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
+       } 
+       get-content z:\aaa.txt
+       copy-item z:\InstallShield2018R2StandaloneBuild.exe -Destination .
+
+
+       .\InstallShield2018R2StandaloneBuild.exe /s /v"INSTALLLEVEL=101 SABCONTAINER=1 /qn" 
+       start-sleep -s 60
+       ipconfig /all
+       
+       cd "C:\Program Files (x86)\InstallShield\2018 SAB\System"
+       
+       copy-item z:\License.lic -Destination .
+       
+       .\IsCmdBld.exe -p z:\*.ism
+       Get-Childitem -Path "C:\Program Files (x86)\InstallShield\2018 SAB\System" | foreach-object {$_.fullname}
+    displayName: "Mount azure file share to Z" 
 
 
