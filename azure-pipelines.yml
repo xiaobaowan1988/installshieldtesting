@@ -29,7 +29,7 @@ steps:
        cd "C:\Program Files (x86)\InstallShield\2018 SAB\System"
        
        copy-item z:\License.lic -Destination .
-       
+       .\IsCmdBld.exe
        .\IsCmdBld.exe -p z:\*.ism
        Get-Childitem -Path "C:\Program Files (x86)\InstallShield\2018 SAB\System" | foreach-object {$_.fullname}
     displayName: "Mount azure file share to Z" 
